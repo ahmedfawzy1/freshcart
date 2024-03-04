@@ -9,12 +9,14 @@ import toast from "react-hot-toast";
 
 export default function FeaturedProducts() {
   const [wishIcon, setWishIcon] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  function getProducts() {
-    return axios.get(`https://ecommerce.routemisr.com/api/v1/products`);
+  function getProducts(page = currentPage) {
+    const productsPage = 12;
+    return axios.get(`https://ecommerce.routemisr.com/api/v1/products?page=${page}&limit=${productsPage}`);
   }
 
-  let { data, isLoading } = useQuery("featuredProducts", getProducts, {
+  let { data, isLoading, refetch } = useQuery(["featuredProducts", currentPage], () => getProducts(currentPage), {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
@@ -73,6 +75,14 @@ export default function FeaturedProducts() {
     }
   }
 
+  const handlePageChange = async (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  useEffect(() => {
+    refetch();
+  }, [currentPage, refetch]);
+
   return (
     <>
       <section className="mt-5">
@@ -110,6 +120,17 @@ export default function FeaturedProducts() {
                   </div>
                 </div>
               ))}
+              <nav className="d-flex justify-content-center" aria-label="...">
+                <ul className="pagination pagination-sm">
+                  {[1, 2, 3, 4, 5].map((pageNumber) => (
+                    <li key={pageNumber} className={`page-item ${currentPage === pageNumber ? "active" : ""}`}>
+                      <button className="page-link" onClick={() => handlePageChange(pageNumber)}>
+                        {pageNumber}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </div>
           )}
         </div>
