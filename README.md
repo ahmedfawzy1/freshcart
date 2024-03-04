@@ -9,14 +9,15 @@ Features:
 -offline detection 
 
 Technologies:
--React js
--Context
--react-router-dom
--react-Query
--react hooks( useState-useContext-useparam-useEffect)
--useformik
--axios
--formi
+- React.js
+- Context
+- react-router-dom
+- react-Query
+- react hooks( useState-useContext-useparam-useEffect)
+- useformik
+- react-slick
+- axios
+- formik
 - yup 
 - react-loader-spinner 
 - react-slick
