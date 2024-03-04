@@ -52,42 +52,39 @@ export default function Navbar() {
           </button>
           <div className={`${isNavCollapsend ? "collapse" : "show collaps"} navbar-collapse`} id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              {userToken != null ? (
-                <>
-                  <li className="nav-item fw-bold font-sm">
-                    <Link className="nav-link" to={"/"}>
-                      Home
-                    </Link>
-                  </li>
-                  <li className="nav-item fw-bold font-sm">
-                    <Link className="nav-link" to={"cart"}>
-                      Cart
-                    </Link>
-                  </li>
-                  <li className="nav-item fw-bold font-sm">
-                    <Link className="nav-link" to={"products"}>
-                      Products
-                    </Link>
-                  </li>
-                  <li className="nav-item fw-bold font-sm">
-                    <Link className="nav-link" to={"categories"}>
-                      Categories
-                    </Link>
-                  </li>
-                  <li className="nav-item fw-bold font-sm">
-                    <Link className="nav-link" to={"brands"}>
-                      Brands
-                    </Link>
-                  </li>
-                  <li className="nav-item fw-bold font-sm">
-                    <Link className="nav-link" to={"wishlist"}>
-                      WishList
-                    </Link>
-                  </li>
-                </>
-              ) : (
-                ""
-              )}
+              {/* {userToken != null ? ( */}
+              <>
+                <li className="nav-item fw-bold font-sm">
+                  <Link className="nav-link" to={"/"}>
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item fw-bold font-sm">
+                  <Link className="nav-link" to={"cart"}>
+                    Cart
+                  </Link>
+                </li>
+                <li className="nav-item fw-bold font-sm">
+                  <Link className="nav-link" to={"products"}>
+                    Products
+                  </Link>
+                </li>
+                <li className="nav-item fw-bold font-sm">
+                  <Link className="nav-link" to={"categories"}>
+                    Categories
+                  </Link>
+                </li>
+                <li className="nav-item fw-bold font-sm">
+                  <Link className="nav-link" to={"brands"}>
+                    Brands
+                  </Link>
+                </li>
+                <li className="nav-item fw-bold font-sm">
+                  <Link className="nav-link" to={"wishlist"}>
+                    WishList
+                  </Link>
+                </li>
+              </>
             </ul>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className={`nav-item d-flex align-items-center me-2 ${style.social}`}>
