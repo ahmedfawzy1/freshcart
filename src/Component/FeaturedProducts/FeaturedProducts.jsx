@@ -124,7 +124,7 @@ export default function FeaturedProducts() {
                 <ul className="pagination pagination-sm">
                   {[1, 2, 3, 4, 5].map((pageNumber) => (
                     <li key={pageNumber} className={`page-item ${currentPage === pageNumber ? "active" : ""}`}>
-                      <button className="page-link" onClick={() => handlePageChange(pageNumber)}>
+                      <button className="page-link shadow-none" onClick={() => handlePageChange(pageNumber)}>
                         {pageNumber}
                       </button>
                     </li>
