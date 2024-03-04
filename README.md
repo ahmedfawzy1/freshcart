@@ -1,12 +1,12 @@
 # freshcart
  a single-page web application created with ReactJS.
 Features:
--Authentication and Authorization
--Reset Password 
--Payment with Stripe
--get,delete,put and post data from Api 
--crud operation on cart component
--offline detection 
+- Authentication and Authorization
+- Reset Password
+- Online Payment
+- get,delete,put and post data from Api 
+- crud operation on cart component
+- offline detection 
 
 Technologies:
 - React.js
