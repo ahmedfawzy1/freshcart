@@ -47,7 +47,16 @@ export default function Cart() {
             <h3 className="fw-bold mb-4">Cart</h3>
             {loading ? (
               <div className="loading">
-                <ThreeDots visible={true} height={100} width={100} color="#0aad0a" radius="9" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass="justify-content-center" />
+                <ThreeDots
+                  visible={true}
+                  height={100}
+                  width={100}
+                  color="#0aad0a"
+                  radius="9"
+                  ariaLabel="three-dots-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="justify-content-center"
+                />
               </div>
             ) : cart ? (
               <>
@@ -65,7 +74,9 @@ export default function Cart() {
                     <div className="col-md-10">
                       <div className="item">
                         <h3 className="h5 fw-bold">{product.product.title.split(" ").slice(0, 3).join(" ")}</h3>
-                        <p className="text-main fw-bold">Price : {product.price} EGP</p>
+                        <p className="text-main fw-bold">
+                          Price : <span className="text-danger">{product.price} EGP</span>
+                        </p>
                         <button onClick={() => deleteItem(product.product.id)} className="btn">
                           <i className="fas fa-trash-can text-danger"></i> Remove
                         </button>
@@ -76,7 +87,7 @@ export default function Cart() {
                         <button onClick={() => updateItem(product.product.id, product.count + 1)} className="btn brdr p-1">
                           +
                         </button>
-                        <span className="mx-2">{product.count}</span>
+                        <span className="mx-2 d-flex align-items-center">{product.count}</span>
                         <button onClick={() => updateItem(product.product.id, product.count - 1)} className="btn brdr p-1">
                           -
                         </button>

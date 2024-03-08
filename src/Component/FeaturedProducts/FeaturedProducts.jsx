@@ -23,29 +23,41 @@ export default function FeaturedProducts() {
   });
   let { addToCart, setCount, getWhishlist, addToWhishlist, removeFromWhishlist } = useContext(CartContext);
   async function postToCart(id) {
-    let { data } = await addToCart(id);
-    if (data.status == "success") {
-      setCount(data.numOfCartItems);
+    if (localStorage.getItem("userToken")) {
+      let { data } = await addToCart(id);
+      if (data.status == "success") {
+        setCount(data.numOfCartItems);
 
-      toast.success(data.message, {
+        toast.success(data.message, {
+          duration: 2000,
+        });
+      }
+    } else {
+      toast.error("LogIn In First Please", {
         duration: 2000,
       });
     }
   }
 
   const handleWishList = async (id) => {
-    const isInWishlist = wishIcon.some((item) => item.id === id);
+    if (localStorage.getItem("userToken")) {
+      const isInWishlist = wishIcon.some((item) => item.id === id);
 
-    if (isInWishlist) {
-      await removeToWhishlist(id);
-      setWishIcon(wishIcon.filter((item) => item.id !== id));
-      toast.success("Product removed successfully to your wishlist", {
-        duration: 2000,
-      });
+      if (isInWishlist) {
+        await removeToWhishlist(id);
+        setWishIcon(wishIcon.filter((item) => item.id !== id));
+        toast.success("Product removed successfully to your wishlist", {
+          duration: 2000,
+        });
+      } else {
+        await postToWhishlist(id);
+        setWishIcon([...wishIcon, { id }]);
+        toast.success("Product added successfully to your wishlist", {
+          duration: 2000,
+        });
+      }
     } else {
-      await postToWhishlist(id);
-      setWishIcon([...wishIcon, { id }]);
-      toast.success("Product added successfully to your wishlist", {
+      toast.error("LogIn In First Please", {
         duration: 2000,
       });
     }
@@ -57,10 +69,6 @@ export default function FeaturedProducts() {
       setWishIcon(data.data);
     }
   }
-
-  useEffect(() => {
-    showWhishlist();
-  }, []);
 
   async function postToWhishlist(id) {
     let { data } = await addToWhishlist(id);
@@ -92,7 +100,16 @@ export default function FeaturedProducts() {
           {isLoading ? (
             <div className="container">
               <div className="row align-items-center vh-100">
-                <ThreeDots visible={true} height={100} width={100} color="#0aad0a" radius="9" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass="justify-content-center" />
+                <ThreeDots
+                  visible={true}
+                  height={100}
+                  width={100}
+                  color="#0aad0a"
+                  radius="9"
+                  ariaLabel="three-dots-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="justify-content-center"
+                />
               </div>
             </div>
           ) : (

@@ -39,6 +39,7 @@ export default function CartContextProvider(props) {
 
   useEffect(() => {
     getCartItem();
+    getWhishlist();
   }, []);
 
   function deleteCartItem(productId) {
@@ -113,7 +114,20 @@ export default function CartContextProvider(props) {
   }
   return (
     <CartContext.Provider
-      value={{ addToCart, getCartItem, deleteCartItem, updateCartItem, checkOutSession, countt, setCount, getWhishlist, addToWhishlist, removeFromWhishlist, wishcount, setWishCount }}
+      value={{
+        addToCart,
+        getCartItem,
+        deleteCartItem,
+        updateCartItem,
+        checkOutSession,
+        countt,
+        setCount,
+        getWhishlist,
+        addToWhishlist,
+        removeFromWhishlist,
+        wishcount,
+        setWishCount,
+      }}
     >
       {props.children}
     </CartContext.Provider>

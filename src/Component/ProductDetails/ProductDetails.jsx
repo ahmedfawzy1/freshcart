@@ -37,11 +37,17 @@ export default function ProductDetails() {
 
   let { addToCart, setCount } = useContext(CartContext);
   async function postToCart(id) {
-    let { data } = await addToCart(id);
-    if (data.status == "success") {
-      setCount(data.numOfCartItems);
+    if (localStorage.getItem("userToken")) {
+      let { data } = await addToCart(id);
+      if (data.status == "success") {
+        setCount(data.numOfCartItems);
 
-      toast.success(data.message, {
+        toast.success(data.message, {
+          duration: 2000,
+        });
+      }
+    } else {
+      toast.error("LogIn In First Please", {
         duration: 2000,
       });
     }

@@ -34,9 +34,9 @@ export default function App() {
         {
           index: true,
           element: (
-            <ProductedRoute>
-              <Home />
-            </ProductedRoute>
+            // <ProductedRoute>
+            <Home />
+            // </ProductedRoute>
           ),
         },
         {
@@ -51,27 +51,27 @@ export default function App() {
           path: "brands",
           element: (
             <Suspense fallback={<div className="vh-100 bg-dark text-light">Loading ...</div>}>
-              <ProductedRoute>
-                <Brands />
-              </ProductedRoute>
+              {/* <ProductedRoute> */}
+              <Brands />
+              {/* </ProductedRoute> */}
             </Suspense>
           ),
         },
         {
           path: "productdetails/:id",
           element: (
-            <ProductedRoute>
-              <ProductDetails />
-            </ProductedRoute>
+            // <ProductedRoute>
+            <ProductDetails />
+            // </ProductedRoute>
           ),
         },
         {
           path: "categories",
           element: (
             <Suspense fallback={<div className="vh-100 bg-dark text-light">Loading ...</div>}>
-              <ProductedRoute>
-                <Categories />
-              </ProductedRoute>
+              {/* <ProductedRoute> */}
+              <Categories />
+              {/* </ProductedRoute> */}
             </Suspense>
           ),
         },
@@ -94,9 +94,9 @@ export default function App() {
         {
           path: "products",
           element: (
-            <ProductedRoute>
-              <Products />
-            </ProductedRoute>
+            // <ProductedRoute>
+            <Products />
+            // </ProductedRoute>
           ),
         },
         {

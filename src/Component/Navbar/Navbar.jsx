@@ -60,11 +60,6 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li className="nav-item fw-bold font-sm">
-                  <Link className="nav-link" to={"cart"}>
-                    Cart
-                  </Link>
-                </li>
-                <li className="nav-item fw-bold font-sm">
                   <Link className="nav-link" to={"products"}>
                     Products
                   </Link>
@@ -77,6 +72,11 @@ export default function Navbar() {
                 <li className="nav-item fw-bold font-sm">
                   <Link className="nav-link" to={"brands"}>
                     Brands
+                  </Link>
+                </li>
+                <li className="nav-item fw-bold font-sm">
+                  <Link className="nav-link" to={"cart"}>
+                    Cart
                   </Link>
                 </li>
                 <li className="nav-item fw-bold font-sm">
