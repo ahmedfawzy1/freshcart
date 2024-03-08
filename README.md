@@ -1,5 +1,5 @@
 # freshcart
- a single-page web application created with ReactJS.
+ **a single-page web application created with ReactJS.**
 Features:
 - Authentication and Authorization
 - Reset Password
@@ -8,12 +8,12 @@ Features:
 - crud operation on cart component
 - offline detection 
 
-Technologies:
+**Technologies:**
 - React.js
 - Context
 - react-router-dom
 - react-Query
-- react hooks( useState-useContext-useparam-useEffect)
+- react hooks( useState-useContext-useparam-useEffect )
 - useformik
 - react-slick
 - axios
@@ -25,3 +25,9 @@ Technologies:
 - react-hot-toast
 - react-detect-offline
 - react-helmet
+
+**Account For Test:**
+
+Email: demo@demo.co
+
+Password: Demo123
