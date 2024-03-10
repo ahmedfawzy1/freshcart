@@ -70,6 +70,12 @@ export default function FeaturedProducts() {
     }
   }
 
+  useEffect(() => {
+    if (localStorage.getItem("userToken")) {
+      showWhishlist();
+    }
+  }, []);
+
   async function postToWhishlist(id) {
     let { data } = await addToWhishlist(id);
     if (data.status == "success") {

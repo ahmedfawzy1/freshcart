@@ -52,7 +52,16 @@ export default function WishList() {
             <h3 className="fw-bold mb-4">WishList</h3>
             {loading ? (
               <div className="loading">
-                <ThreeDots visible={true} height={100} width={100} color="#0aad0a" radius="9" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass="justify-content-center" />
+                <ThreeDots
+                  visible={true}
+                  height={100}
+                  width={100}
+                  color="#0aad0a"
+                  radius="9"
+                  ariaLabel="three-dots-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="justify-content-center"
+                />
               </div>
             ) : cart ? (
               <>

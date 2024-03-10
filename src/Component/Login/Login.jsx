@@ -52,7 +52,15 @@ export default function Login() {
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
             </label>
-            <input onBlur={formik.handleBlur} onChange={formik.handleChange} type="email" className="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              type="email"
+              className="form-control"
+              name="email"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
             {formik.errors.email && formik.touched.email ? <div className="alert alert-danger py-2">{formik.errors.email}</div> : ""}
             <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
@@ -62,7 +70,14 @@ export default function Login() {
             <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
-            <input onBlur={formik.handleBlur} onChange={formik.handleChange} type="password" className="form-control" name="password" id="exampleInputPassword1" />
+            <input
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              type="password"
+              className="form-control"
+              name="password"
+              id="exampleInputPassword1"
+            />
             {formik.errors.password && formik.touched.password ? <div className="alert alert-danger py-2">{formik.errors.password}</div> : ""}
             <Link className="font-sm text-danger" to={"/forgetpassword"}>
               Forget Password
@@ -71,7 +86,16 @@ export default function Login() {
 
           {loading ? (
             <button type="button" className="btn text-light">
-              <ThreeDots visible={true} height="30" width="30" color="#0aad0a" radius="9" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClass="" />
+              <ThreeDots
+                visible={true}
+                height="30"
+                width="30"
+                color="#0aad0a"
+                radius="9"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
             </button>
           ) : (
             <button disabled={!(formik.isValid && formik.dirty)} type="submit" className="btn bg-main text-light">

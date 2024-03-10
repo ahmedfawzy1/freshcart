@@ -7,11 +7,18 @@ export default function CartContextProvider(props) {
   const [countt, setCount] = useState(0);
   const [wishcount, setWishCount] = useState(0);
 
-  let headers = {
-    token: localStorage.getItem("userToken"),
-  };
+  // let headers = {
+  //   token: localStorage.getItem("userToken"),
+  // };
+
+  function getHeaders() {
+    return {
+      token: localStorage.getItem("userToken"),
+    };
+  }
 
   function addToCart(productId) {
+    let headers = getHeaders();
     return axios
       .post(
         `https://ecommerce.routemisr.com/api/v1/cart`,
@@ -26,6 +33,7 @@ export default function CartContextProvider(props) {
       .catch((err) => err);
   }
   function getCartItem() {
+    let headers = getHeaders();
     return axios
       .get(`https://ecommerce.routemisr.com/api/v1/cart`, {
         headers: headers,
@@ -38,11 +46,14 @@ export default function CartContextProvider(props) {
   }
 
   useEffect(() => {
-    getCartItem();
-    getWhishlist();
+    if (localStorage.getItem("userToken")) {
+      getCartItem();
+      getWhishlist();
+    }
   }, []);
 
   function deleteCartItem(productId) {
+    let headers = getHeaders();
     return axios
       .delete(`https://ecommerce.routemisr.com/api/v1/cart/${productId}`, {
         headers: headers,
@@ -51,6 +62,7 @@ export default function CartContextProvider(props) {
       .catch((err) => err);
   }
   function updateCartItem(productId, count) {
+    let headers = getHeaders();
     return axios
       .put(
         `https://ecommerce.routemisr.com/api/v1/cart/${productId}`,
@@ -65,6 +77,7 @@ export default function CartContextProvider(props) {
       .catch((err) => err);
   }
   function checkOutSession(cartId, shippingAddress) {
+    let headers = getHeaders();
     return axios
       .post(
         `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:3000`,
@@ -80,6 +93,7 @@ export default function CartContextProvider(props) {
   }
 
   function getWhishlist() {
+    let headers = getHeaders();
     return axios
       .get(`https://ecommerce.routemisr.com/api/v1/wishlist`, {
         headers: headers,
@@ -91,6 +105,7 @@ export default function CartContextProvider(props) {
       .catch((err) => err);
   }
   function addToWhishlist(productId) {
+    let headers = getHeaders();
     return axios
       .post(
         `https://ecommerce.routemisr.com/api/v1/wishlist`,
@@ -105,6 +120,7 @@ export default function CartContextProvider(props) {
       .catch((err) => err);
   }
   function removeFromWhishlist(productId) {
+    let headers = getHeaders();
     return axios
       .delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`, {
         headers: headers,

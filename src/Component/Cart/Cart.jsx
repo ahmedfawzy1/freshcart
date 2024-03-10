@@ -96,7 +96,7 @@ export default function Cart() {
                   </div>
                 ))}
                 <Link className="btn bg-main text-light m-3" to={`/shippingaddress/${cart.data._id}`}>
-                  online payment
+                  Online Payment
                 </Link>
               </>
             ) : (

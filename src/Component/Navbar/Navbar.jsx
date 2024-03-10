@@ -11,7 +11,7 @@ export default function Navbar() {
   const [isNavCollapsend, setIsNavCollapsend] = useState(true);
   const handleNavCollapse = () => setIsNavCollapsend(!isNavCollapsend);
 
-  let { countt, wishcount } = useContext(CartContext);
+  let { countt, wishcount, getCartItem } = useContext(CartContext);
   let { userToken, setUserToken } = useContext(UserContext);
   let navigate = useNavigate();
 
@@ -30,6 +30,12 @@ export default function Navbar() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("userToken")) {
+      getCartItem();
+    }
+  }, [getCartItem]);
 
   return (
     <>
