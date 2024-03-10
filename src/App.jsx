@@ -19,6 +19,7 @@ import AllOrders from "./Component/AllOrders/AllOrders.jsx";
 import ForgetPassword from "./Component/ForgetPassword/ForgetPassword.jsx";
 import VerifyCode from "./Component/VerifyCode/VerifyCode.jsx";
 import UdatePassword from "./Component/UdatePassword/UdatePassword.jsx";
+import { ThreeDots } from "react-loader-spinner";
 // import WishList from "./Component/WishList/WishList.jsx";
 
 const Categories = lazy(() => import("./Component/Categories/Categories.jsx"));
@@ -50,7 +51,22 @@ export default function App() {
         {
           path: "brands",
           element: (
-            <Suspense fallback={<div className="vh-100 bg-dark text-light">Loading ...</div>}>
+            <Suspense
+              fallback={
+                <div className="loading">
+                  <ThreeDots
+                    visible={true}
+                    height={100}
+                    width={100}
+                    color="#0aad0a"
+                    radius="9"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="justify-content-center"
+                  />
+                </div>
+              }
+            >
               {/* <ProductedRoute> */}
               <Brands />
               {/* </ProductedRoute> */}
@@ -68,7 +84,22 @@ export default function App() {
         {
           path: "categories",
           element: (
-            <Suspense fallback={<div className="vh-100 bg-dark text-light">Loading ...</div>}>
+            <Suspense
+              fallback={
+                <div className="loading">
+                  <ThreeDots
+                    visible={true}
+                    height={100}
+                    width={100}
+                    color="#0aad0a"
+                    radius="9"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="justify-content-center"
+                  />
+                </div>
+              }
+            >
               {/* <ProductedRoute> */}
               <Categories />
               {/* </ProductedRoute> */}
