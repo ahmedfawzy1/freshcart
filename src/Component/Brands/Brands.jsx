@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import style from "./Brands.module.css";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import { useQuery } from "react-query";
 
 export default function Brands() {
-  // const [brands, setBrands] = useState([]);
-  // const [loading, setLoading] = useState(true);
-
   async function getbrands() {
     return await axios.get(`https://ecommerce.routemisr.com/api/v1/brands`);
   }
@@ -16,8 +13,6 @@ export default function Brands() {
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
   });
-  // setBrands(data?.data);
-  // setLoading(false);
 
   useEffect(() => {
     refetch();

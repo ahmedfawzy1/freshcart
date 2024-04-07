@@ -5,6 +5,18 @@ import { ThreeDots } from "react-loader-spinner";
 import { useQuery } from "react-query";
 
 export default function Categories() {
+  // const [category, setCategory] = useState([]);
+  // const [loading, setLoading] = useState(true);
+
+  // async function getCatergories() {
+  //   let { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/categories`);
+  //   setCategory(data?.data);
+  //   setLoading(false);
+  // }
+
+  // useEffect(() => {
+  //   getCatergories();
+  // }, []);
   async function getCatergories() {
     return await axios.get(`https://ecommerce.routemisr.com/api/v1/categories`);
   }
@@ -18,7 +30,6 @@ export default function Categories() {
   useEffect(() => {
     refetch();
   }, [refetch]);
-
   return (
     <>
       <section className="py-5">
